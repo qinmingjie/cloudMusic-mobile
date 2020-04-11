@@ -29,4 +29,14 @@ function NewdataReducer(newlist={
     
 }
 
-export {UPdataReducer,NewdataReducer,OrgdataReducer}
+function MnewdataReducer(newlist={
+    Newdata:[]
+},action){
+    if(action.type==="MListNew_data"){
+        return {Newdata:action.data}
+    }
+    return newlist;
+    
+}
+
+export {UPdataReducer,NewdataReducer,OrgdataReducer,MnewdataReducer}

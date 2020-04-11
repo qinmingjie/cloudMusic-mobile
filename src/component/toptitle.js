@@ -1,6 +1,9 @@
-import React from "react"
+import React, { useState, useEffect } from "react"
 import TopMusicList from "./topmusiclist"
 function Toptitle(props){
+    let [music,setmusic] = useState(0)
+    
+
     return(
         <div className={props.name?"notice-top-wrap"+" "+props.name:"notice-top-wrap"}>
             <div className="notice-top">

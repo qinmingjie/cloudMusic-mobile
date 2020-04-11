@@ -1,14 +1,39 @@
-import React,{Fragment, useState} from "react"
+import React,{Fragment, useState, useEffect} from "react"
 import playlist from "../../static/css/playlist.module.css"
 import Recommend from "../../component/recommend"
+import PageNation from "../../component/pagenation"
+import {useLocation,NavLink} from "react-router-dom"
+import {useSelector} from "react-redux"
+import {usePlaylists} from "../../store/action/index"
+import Footer from "../../component/footer"
+import qs from "qs"
 export default function PlayList(props){
-    let [show,setShow] = useState(false)
+    let numb = 100; //获取多少条歌单
+    let [thisPage,setPage] = useState(0)
+    
+    let state = useSelector((state)=>{
+        return state.playlistsReducer
+    })
+    let getTypData = usePlaylists() //获取数据
+    let [show,setShow] = useState(0)  //显示隐藏方法
+
+    let locCat = qs.parse(useLocation().search.slice(1)); //获取地址参数
+    
+    useEffect(()=>{
+        getTypData("/playlist/catlist")
+    },[])
+    // console.log("index"+thisPage)
+    let {cat,type,loading} = state  //解构出分类
+    // console.log(loading)
     return (
         <Fragment>
+            <div className={loading?playlist.loading:playlist.loadingend}>
+			    <p id="loading">Loading<span>.</span><span>.</span><span>.</span></p>
+		    </div>
             <div id={playlist.content}>
                 <div className={playlist.htitle}>
                     <div className={playlist.rectxt}>
-                        <a href="">全部</a>
+                        <a href="">{locCat.cat}</a>
                         <a className={playlist.select} onClick={(e)=>{
                             e.preventDefault()
                             setShow(!show)
@@ -18,7 +43,10 @@ export default function PlayList(props){
                                 <em></em>
                             </i>
                         </a>
-                        <section className={playlist.commendSort} style={show?{display:"block"}:{display:"none"}}>
+                        <section className={playlist.commendSort} style={show?{display:"block"}:{display:"none"}} onClick={(e)=>{
+                            e.preventDefault()
+                            setShow(!show)
+                        }}>
                             <div className={playlist.commHeader}>
                                 <em></em>
                             </div>
@@ -28,140 +56,83 @@ export default function PlayList(props){
                             <div className={playlist.language}>
                                 <div className={playlist.caption}>
                                     <em></em>
-                                    语种
+                                    {type[0]}
                                 </div>
                                 <div className={playlist.Link}>
-                                   <a href="">华语</a>
-                                   <a href="">欧美</a>
-                                   <a href="">日语</a>
-                                   <a href="">韩语</a>
-                                   <a href="">粤语</a>
+                                    {(cat.length===0||cat===undefined)?"":cat.map((item,index)=>{
+                                        if(item.category===0){
+                                            return <NavLink key={item.name} to={`/index/playlist?cat=${item.name}&limit=${numb}&page=1`} activeClassName="active">{item.name}</NavLink>
+                                        }
+                                    })}
                                 </div>
                             </div>
                             <div className={playlist.style}>
                                 <div className={playlist.caption}>
                                     <em></em>
-                                    风格
+                                    {type[1]}
                                 </div>
                                 <div className={playlist.Link}>
-                                    <a href="">流行</a>
-                                    <a href="">摇滚</a>
-                                    <a href="">民谣</a>
-                                    <a href="">电子</a>
-                                    <a href="">舞曲</a>
-                                    <a href="">流行</a>
-                                    <a href="">摇滚</a>
-                                    <a href="">民谣</a>
-                                    <a href="">电子</a>
-                                    <a href="">舞曲</a>
-                                    <a href="">流行</a>
-                                    <a href="">摇滚</a>
-                                    <a href="">民谣</a>
-                                    <a href="">电子</a>
-                                    <a href="">舞曲</a>
-                                    <a href="">流行</a>
-                                    <a href="">摇滚</a>
-                                    <a href="">民谣</a>
-                                    <a href="">电子</a>
-                                    <a href="">舞曲</a>
+                                    {(cat.length===0||cat===undefined)?"":cat.map((item,index)=>{
+                                        if(item.category===1){
+                                            return <NavLink key={item.name} to={`/index/playlist?cat=${item.name}&limit=${numb}&page=1`} activeClassName="active">{item.name}</NavLink>
+                                        }
+                                    })}
+                                   
                                 </div>
                                 
                             </div>
                             <div className={playlist.scene}>
                                 <div className={playlist.caption}>
                                     <em></em>
-                                    场景
+                                    {type[2]}
                                 </div>
                                 <div className={playlist.Link}>
-                                    <a href="">流行</a>
-                                    <a href="">摇滚</a>
-                                    <a href="">民谣</a>
-                                    <a href="">电子</a>
-                                    <a href="">舞曲</a>
-                                    <a href="">流行</a>
-                                    <a href="">摇滚</a>
-                                    <a href="">民谣</a>
-                                    <a href="">电子</a>
-                                    <a href="">舞曲</a>
-                                    <a href="">流行</a>
-                                    <a href="">摇滚</a>
-                                    <a href="">民谣</a>
-                                    <a href="">电子</a>
-                                    <a href="">舞曲</a>
-                                    <a href="">流行</a>
-                                    <a href="">摇滚</a>
-                                    <a href="">民谣</a>
-                                    <a href="">电子</a>
-                                    <a href="">舞曲</a>
+                                    {(cat.length===0||cat===undefined)?"":cat.map((item,index)=>{
+                                        if(item.category===2){
+                                            return <NavLink key={item.name} to={`/index/playlist?cat=${item.name}&limit=${numb}&page=1`} activeClassName="active">{item.name}</NavLink>
+                                        }
+                                    })}
+                                    
                                 </div>
                             </div>
                             <div className={playlist.fell}>
                                 <div className={playlist.caption}>
                                     <em></em>
-                                    情感
+                                    {type[3]}
                                 </div>
                                 <div className={playlist.Link}>
-                                    <a href="">流行</a>
-                                    <a href="">摇滚</a>
-                                    <a href="">民谣</a>
-                                    <a href="">电子</a>
-                                    <a href="">舞曲</a>
-                                    <a href="">流行</a>
-                                    <a href="">摇滚</a>
-                                    <a href="">民谣</a>
-                                    <a href="">电子</a>
-                                    <a href="">舞曲</a>
-                                    <a href="">流行</a>
-                                    <a href="">摇滚</a>
-                                    <a href="">民谣</a>
-                                    <a href="">电子</a>
-                                    <a href="">舞曲</a>
-                                    <a href="">流行</a>
-                                    <a href="">摇滚</a>
-                                    <a href="">民谣</a>
-                                    <a href="">电子</a>
-                                    <a href="">舞曲</a>
+                                    {(cat.length===0||cat===undefined)?"":cat.map((item,index)=>{
+                                        if(item.category===3){
+                                            return <NavLink key={item.name} to={`/index/playlist?cat=${item.name}&limit=${numb}&page=1`} activeClassName="active">{item.name}</NavLink>
+                                        }
+                                    })}
                                 </div>
                             </div>
                             <div className={playlist.topic}>
                                 <div className={playlist.caption}>
                                     <em></em>
-                                    主题
+                                    {type[4]}
                                 </div>
                                 <div className={playlist.Link}>
-                                    <a href="">流行</a>
-                                    <a href="">摇滚</a>
-                                    <a href="">民谣</a>
-                                    <a href="">电子</a>
-                                    <a href="">舞曲</a>
-                                    <a href="">流行</a>
-                                    <a href="">摇滚</a>
-                                    <a href="">民谣</a>
-                                    <a href="">电子</a>
-                                    <a href="">舞曲</a>
-                                    <a href="">流行</a>
-                                    <a href="">摇滚</a>
-                                    <a href="">民谣</a>
-                                    <a href="">电子</a>
-                                    <a href="">舞曲</a>
-                                    <a href="">流行</a>
-                                    <a href="">摇滚</a>
-                                    <a href="">民谣</a>
-                                    <a href="">电子</a>
-                                    <a href="">舞曲</a>
+                                    {(cat.length===0||cat===undefined)?"":cat.map((item,index)=>{
+                                        if(item.category===4){
+                                            return <NavLink key={item.name} to={`/index/playlist?cat=${item.name}&limit=${numb}&page=1`} activeClassName="active">{item.name}</NavLink>
+                                        }
+                                    })}
                                 </div>
                             </div>
                             <div className={playlist.commFooter}></div>
                         </section>
                     </div>
                     <span className={playlist.tmucmore}>
-                        <a href="" className="">热门
-                        </a>
+                        <NavLink to="/index/playlist?cat=" className="">热门
+                        </NavLink>
                     </span>
                 </div>
-                <Recommend url={"/top/playlist"} cat={""} limit={40}/>
+                <Recommend url={"/top/playlist"} cat={locCat.cat} page={thisPage} limit={numb}/>
+                <PageNation num={numb} fn={setPage}/>
             </div>
-           
+            <Footer/>
         </Fragment>
     )
 }

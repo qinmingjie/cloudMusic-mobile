@@ -32,6 +32,32 @@ function useRecommend(){
     }
 }
 
+//获取移动端M歌单
+function useMRecommend(){
+    let dispatch = useDispatch();   //用来返回一个函数，在组件的生命周期useEffect执行
+    return function(recommend){
+        http.get(recommend).then((res)=>{
+            dispatch({
+                type:"Mrecommend_data",
+                data:res.data
+            })
+        }) 
+    }
+}
+//获取移动端最新音乐推荐
+function useMnewmusic(){
+    let dispatch = useDispatch();   //用来返回一个函数，在组件的生命周期useEffect执行
+    return function(recommend){
+        http.get(recommend).then((res)=>{
+            dispatch({
+                type:"MListNew_data",
+                data:res.data
+            })
+        }) 
+    }
+}
+
+
 //获取热门推荐数据
 function useNewDics(){
     let dispatch = useDispatch();   //用来返回一个函数，在组件的生命周期useEffect执行
@@ -80,4 +106,50 @@ function useNewdata(){
         });
     }
 }
-export {useBanner,useRecommend,useNewDics,useOrgdata,useUpdata,useNewdata}
+
+// 获取歌单分类
+
+function usePlaylists(){
+    let dispatch = useDispatch();
+    return function(playlists){
+        http.get(playlists).then((res)=>{
+            dispatch({
+                type:"playlists_data",
+                data:res.data,
+                loading:false
+            })
+        });
+    }
+}
+
+//获取歌单详情
+function usePlaydetail(){
+    let dispatch = useDispatch();
+    return function(playdetail){
+        http.get(playdetail).then((res)=>{
+            dispatch({
+                type:"playdetail_data",
+                data:res.data,
+                loading:false
+            })
+        });
+    }
+}
+
+//获取音乐地址
+function useMusicurl(path){
+    let dispatch = useDispatch();
+    return function(mucid){
+        http.get(mucid).then((res)=>{
+            dispatch({
+                type:"musicurl_data",
+                data:res.data
+            })
+        });
+    }
+}
+
+function getUrl(path){
+    return http.get(path)
+}
+export {useBanner,useRecommend,useNewDics,useOrgdata,useUpdata,useNewdata,usePlaylists,usePlaydetail,useMusicurl,getUrl,useMRecommend,useMnewmusic}

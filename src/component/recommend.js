@@ -1,56 +1,55 @@
-import React, { useEffect } from "react"
+import React, { useEffect} from "react"
 import {useSelector} from "react-redux"
 import {useRecommend} from "../store/action/index"
-import {useLocation} from "react-router-dom"
+import {useLocation,NavLink} from "react-router-dom"
 function Recommend(props){
     let loca = useLocation().pathname
-    let {url,cat,limit} = props
+    let {url,cat,page,limit} = props
     let state = useSelector((state)=>{
         return state.recommendReducer    //获取状态管理函数中的状态数据
     })
-    let getData = useRecommend();  //获取操作数据的函数
-
-    useEffect(()=>{
-        getData(`${url}?limit=${limit}&cat=${cat}`)   //在组件跟新是使用操作函数来获取数据然后返回到状态管理函数中
-    },[loca])
     let {data} = state
+    let getData = useRecommend();  //获取操作数据的函数
+    useEffect(()=>{
+        getData(`${url}?cat=${cat}&limit=${limit}`)   //在组件跟新是使用操作函数来获取数据然后返回到状态管理函数中
+    },[cat,page])
     return(
         <div>
             <ul className="rec-mucWrap">
-                {data.length!==undefined?"":(data.result?data.result.map((item,index)=>{
+                {data.length!==undefined?"":(data.result?data.result.slice(0,8).map((item,index)=>{
                     return (
-                        <li key={item.id}>
+                        <li key={item.name}>
                             <div className="rec-muc">
                                 <img src={item.picUrl} alt=""/>
-                                <a href="" className="cover"></a>
+                                <NavLink to={`/index/playlist/detail?id=${item.id}`} className="cover"></NavLink>
                                 <div className="rec-icon">
                                     <span className="set-icon"></span>
                                     <span className="icon-txt">{String(item.playCount).length>4?(String(item.playCount).length>8?String(item.playCount).slice(0,-8)+"亿":String(item.playCount).slice(0,-4)+"万"):item.playCount}</span>
-                                    <a href="" className="p-icon"></a>
+                                    <NavLink to={`/index/playlist/detail?id=${item.id}`} className="p-icon"></NavLink>
                                 </div>
                                 <p className="rec-mucTxt">
-                                    <a href="">
+                                    <NavLink to={`/index/playlist/detail?id=${item.id}`}>
                                         {item.name}
-                                    </a>
+                                    </NavLink>
                                 </p>
                             </div>
                         </li>
                     )
-                }):data.playlists.map((item,index)=>{
+                }):data.playlists.slice((page)*20,(page)*20+20).map((item,index)=>{
                     return(
-                        <li key={item.id} className="playlists">
+                        <li key={index} className="playlists">
                             <div className="rec-muc">
                                 <img src={item.coverImgUrl} alt=""/>
-                                <a href="" className="cover"></a>
+                                <NavLink to={`/index/playlist/detail?id=${item.id}`} className="cover"></NavLink>
                                 <div className="rec-icon">
                                     <span className="set-icon"></span>
                                     <span className="icon-txt">{String(item.playCount).length>4?(String(item.playCount).length>8?String(item.playCount).slice(0,-8)+"亿":String(item.playCount).slice(0,-4)+"万"):item.playCount}</span>
-                                    <a href="" className="p-icon"></a>
+                                    <NavLink to={`/index/playlist/detail?id=${item.id}`} className="p-icon"></NavLink>
                                 </div>
                                 <p className="rec-mucTxt">
-                                    <a href="">
-                                        {item.name}
-                                    </a>
+                                    <NavLink to={`/index/playlist/detail?id=${item.id}`}>
+                                        {page}{item.name}
+                                    </NavLink>
                                 </p>
                             </div>
                         </li>

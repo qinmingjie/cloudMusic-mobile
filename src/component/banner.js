@@ -15,17 +15,23 @@ export default function BannerPage(props){
     },[loca])
 
 
-
     let {data} = bannerReducer
     //结构出需要的数据:id,图片地址，分类标签
     let {banners} = data
     return (
         <Fragment>
             <div className="par-ban">
+                <div className="brul"></div>
                 <div className="banner-wrap">
                     <div className="wrap">
                         <div className="banner">
-                            {banners===undefined?"":(banners.map((item,index)=>{
+                            {banners===undefined?"":(
+                                <a href="" title={banners[0].typeTitle} className="ban-img">
+                                    <img src={banners[0].imageUrl} alt=""/>
+                                </a>
+                                )
+                            }
+                            {/* {banners===undefined?"":(banners.map((item,index)=>{
                                 return(
                                     <div key={item.imageUrl}>
                                         <a href="" title={item.typeTitle} className="ban-img">
@@ -33,7 +39,7 @@ export default function BannerPage(props){
                                         </a>
                                     </div>
                                 )
-                            }))}
+                            }))} */}
                             <div className="click-circle">
                                 {banners===undefined?"":(banners.map((item,index)=>{
                                     return(

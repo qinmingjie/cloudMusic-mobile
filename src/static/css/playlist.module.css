@@ -104,6 +104,10 @@
     display:none;
     z-index:5;
 }
+.commendSort .active{
+    background-color:#a7a7a7;
+    color:#fff;
+}
 #show{
     background-color:pink;
 }
@@ -207,4 +211,19 @@
     background-image: url(../img/sltlyr.png);
     background-repeat: no-repeat;
     background-position: -1450px -4px;
+}
+
+
+.loading{
+    display:block;
+    position: absolute;
+    top:0;
+    right:0;
+    left:0;
+    bottom:0;
+    z-index:5;
+    background-color:#fff;
+}
+.loadingend{
+    display:none;
 }

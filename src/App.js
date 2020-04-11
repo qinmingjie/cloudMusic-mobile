@@ -1,24 +1,32 @@
-import React, { Fragment } from 'react';
+import React, { Fragment, useEffect } from 'react';
 import { Route, Switch } from 'react-router-dom';
 import "./static/css/index.css"
 import {headerRouter,childRender} from "./router/index"
 import Header from "./component/header"
-import Index from "./views/index/index"
 import {useSelector} from "react-redux"
-import {Spin} from "antd"
+import Play from "./component/play"
+
+// y移动端组件
+import Mheader from "./mobileconponemt/mheader"
+import MNav from "./mobileconponemt/mnav"
 
 function App() {
 let state = (useSelector((state)=>{
 	return state
 }))
-let loading = state.bannerReducer.loading
+let loading = state.bannerReducer.loading;
+useEffect(()=>{
+})
 return (
 	<Fragment>
-		{/* <div className={loading?"loading":"loadingend"}>
-			<p id="loading">Loading<span>.</span><span>.</span><span>.</span></p>
-		</div> */}
 		<div className="App">
+			<Play/>
+			{/* <div className={loading?"loading":"loadingend"}>
+				<p id="loading">Loading<span>.</span><span>.</span><span>.</span></p>
+			</div> */}
 			<Header/>
+			<Mheader/>
+			<MNav/>
 			<Switch>
 				{headerRouter.map((item,index)=>{
 					return(
@@ -49,5 +57,4 @@ return (
 	</Fragment>
   );
 }
-
 export default App;

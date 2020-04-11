@@ -1,5 +1,5 @@
 import React from "react"
-import playlist from "../static/css/playlist.module.css"
+import {NavLink} from "react-router-dom"
 function CommendTitle(){
     return(
         <div className="h-title">
@@ -7,18 +7,18 @@ function CommendTitle(){
                 <a href="">热门推荐</a>
             </div>
             <div className="rec-sort">
-                <a href="">华语</a>
+                <NavLink to="/index/playlist?cat=华语&limit=100&page=1">华语</NavLink>
                 <span>|</span>
-                <a href="">流行</a>
+                <NavLink to="/index/playlist?cat=流行&limit=100&page=1">流行</NavLink>
                 <span>|</span>
-                <a href="">摇滚</a>
+                <NavLink to="/index/playlist?cat=摇滚&limit=100&page=1">摇滚</NavLink>
                 <span>|</span>
-                <a href="">民谣</a>
+                <NavLink to="/index/playlist?cat=民谣&limit=100&page=1">民谣</NavLink>
                 <span>|</span>
-                <a href="">电子</a>
+                <NavLink to="/index/playlist?cat=电子&limit=100&page=1">电子</NavLink>
             </div>
             <span className="muc-more">
-                <a href="" className="">更多</a>
+                <NavLink to="/index/playlist?cat=全部&limit=100&page=1" className="">更多</NavLink>
                 <span className="bg-more"></span>
             </span>
         </div>

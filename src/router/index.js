@@ -10,6 +10,7 @@ import Djradio from "../views/djradio/index"
 import PlayList from "../views/playlist/index"
 import TopList from "../views/toplist/index"
 import ChildNav from "../component/childNav"
+import Detail from "../views/playdetail/index"
 let headerRouter = [
     {
         path:"/",
@@ -62,7 +63,7 @@ let childRouter = [
         exact:true,
         active:"active"
     },{
-        path:"/index/playlist/cat=全部",
+        path:"/index/playlist?cat=全部&limit=100&page=1",
         title:"歌单",
         exact:true,
         active:"active"
@@ -110,7 +111,7 @@ let childRender = [
             )
         }
     },{
-        path:"/index/playlist/:cat",
+        path:"/index/playlist",
         exact:true,
         title:"歌单",
         render(props){
@@ -118,6 +119,18 @@ let childRender = [
                 <Fragment>
                     <ChildNav/>
                     <PlayList/>
+                </Fragment>
+            )
+        }
+    },{
+        path:"/index/playlist/detail",
+        exact:true,
+        title:"歌单",
+        render(props){
+            return (
+                <Fragment>
+                    <ChildNav/>
+                    <Detail/>
                 </Fragment>
             )
         }

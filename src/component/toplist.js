@@ -3,7 +3,6 @@ import {useSelector} from "react-redux"
 import {useOrgdata,useUpdata,useNewdata} from "../store/action/index"
 import {useLocation} from "react-router-dom"
 import Toptitle from "./toptitle"
-import qs from "qs"
 function TopList(){
     let loca = useLocation().pathname
     let state = useSelector((state)=>{

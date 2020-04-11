@@ -1,0 +1,163 @@
+.title{
+    height:33px;
+    margin-top:27px;
+    border-bottom:2px solid #c20c0c;
+}
+.title h3{
+    font-size:20px;
+    line-height:28px;
+    float:left;
+    font-weight: initial;
+}
+.numbers{
+    float:left;
+    margin:5px 0 0 20px;
+    color:#666;
+}
+.playnumber{
+    float:right;
+    margin-top:5px;
+    color:#666;
+}
+.playnumber .red{
+    color:#c20c0c;
+}
+
+/* 列表 */
+.table{
+    width:100%;
+    border-collapse: collapse;
+    border-spacing: 0;
+    border:1px solid #d9d9d9;
+}
+.thead{
+    background-image: url("../img/table.png");
+    background-position: 0,0;
+}
+.thead th{
+    text-align: left;
+    height:38px;
+    background-repeat: repeat-x;
+    background-image: url(../img/table.png);
+}
+.thead th div{
+    padding:8px 10px;
+    box-sizing: content-box;
+    height:18px;
+    background-image: url(../img/table.png);
+    background-repeat: repeat-x;
+}
+.head1{
+    width:74px;
+}
+.thead .head1 div{
+    padding:6px 10px;
+    height:18px;
+}
+.thead .head2 div{
+    background-repeat: no-repeat;
+    background-position: -1px -57px;
+}
+.thead .head3 div{
+    background-repeat: no-repeat;
+    background-position: -1px -57px;
+}
+.thead .head4 div{
+    background-repeat: no-repeat;
+    background-position: -1px -57px;
+}
+.thead .head5 div{
+    background-repeat: no-repeat;
+    background-position: -1px -57px;
+}
+
+.tbody td{
+    padding:6px 10px;
+    text-align:left;
+    line-height:18px;
+    color:#333;
+}
+.tbody .num{
+    color:#999;
+}
+.tbody td>div{
+    height:18px;
+}
+.muscName div{
+    max-width:174px;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+.share{
+    width:117px;
+}
+.song{
+    max-width:70px;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+.album{
+    max-width:97px;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+
+.gray{
+    background-color:#F7F7F7;
+}
+.icon1{
+    float:right;
+    display:inline-block;
+    width: 17px;
+    height:17px;
+    background-image: url(../img//table.png);
+    background-repeat: no-repeat;
+    background-position: 0 -103px;
+    cursor: pointer;
+}
+.icon1:hover{
+    background-position:0 -128px;
+}
+
+.show{
+    display:none;
+}
+.span2,.span3,.span4{
+    width:18px;
+    height:16px;
+    margin:2px 0 0 4px;
+    display: inline-block;
+    background: url(../img/table.png) no-repeat;
+}
+.span1{
+    margin:2px 0 0 4px;
+    width:18px;
+    height:16px;
+    display:inline-block;
+    background: url(../img/icon.png) no-repeat;
+    background-position: 0 -700px;
+}
+.span1:hover{
+    background-position: -22px -700px; 
+}
+.span2{
+    background-position:0 -174px;
+}
+.span2:hover{
+    background-position:-20px -174px;
+}
+.span3{
+    background-position:0 -195px;
+}
+.span3:hover{
+    background-position:-20px -195px;
+}
+.span4{
+    background-position:-81px -174px;
+}
+.span4:hover{
+    background-position:-104px -174px;
+}
