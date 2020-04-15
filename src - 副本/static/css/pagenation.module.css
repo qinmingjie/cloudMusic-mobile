@@ -1,0 +1,38 @@
+.page{
+    display:inline-block;
+    height: 24px;
+    padding: 0 8px;
+    background-color: #fff;
+    line-height: 24px;
+    margin: 0 5px 0 5px;
+    border: 1px solid #ccc;
+    border-radius: 2px;
+    color:#000;
+    vertical-align: middle;
+}
+.page:hover{
+    border:1px solid #666;
+    color:#fff;
+    background-color:#c20c0c;
+}
+.pageWrap{
+    text-align:center;
+}
+
+.prev{
+    display:inline-block;
+    width: 47px;
+    box-sizing: content-box;
+    padding-left: 22px;
+    line-height:24px;
+    height:24px;
+    margin: 0px 1px 0 2px;
+}
+.next{
+    display:inline-block;
+    box-sizing: content-box;
+    line-height:24px;
+    height:24px;
+    width: 57px;
+    padding-left: 12px
+}

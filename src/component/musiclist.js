@@ -8,8 +8,8 @@ export default function MusicList(props){
     useEffect(()=>{
         // console.log(musicLocation)
     },[musicLocation])
-
     useEffect(()=>{
+        //音乐播放
         let musiclist = document.querySelectorAll(".musictr")
         let audio = document.querySelector("audio")
         let play = document.querySelector(".playWrap")
@@ -21,8 +21,8 @@ export default function MusicList(props){
                     let picUrl = item.getAttribute("album-id")
                     getUrl(`/song/url?id=${mucUrl}`).then((res)=>{
                         let music = res.data.data[0].url;
+                        console.log(music)
                         if(music!==null){
-                            
                             cover.style.backgroundImage = `url(${picUrl})`;
                             cover.classList.add("anima")
                             cover.style.animationPlayState = "running"
@@ -36,6 +36,8 @@ export default function MusicList(props){
                 }
             })
         }
+        
+        
     })
     return(
         <Fragment>
@@ -64,6 +66,7 @@ export default function MusicList(props){
                     </thead>
                     <tbody className={musiclist.tbody}>
                         {data.tracks.map((item,index)=>{
+                            
                             return(
                                 <tr key={item.id} musicurl={item.id}  album-id={item.al.picUrl} hasshow="show" className={(((index+1)%2===0)?"":musiclist.gray)+" "+"musictr"} 
                                 onMouseEnter={function(e){
@@ -88,7 +91,6 @@ export default function MusicList(props){
                                             })
                                         }
                                         muc(res.data.data[0].url).then(()=>{
-                                            console.log(musicLocation)
                                             if(musicLocation===null){
                                                 alert("为获取到版权,努力中！")
                                             }
@@ -122,7 +124,11 @@ export default function MusicList(props){
                                     </td>
                                     <td>
                                         <div className={musiclist.share}>
-                                            <span className={musiclist.time}  id="time">04:44</span>
+                                            <span className={musiclist.time+" "+"timeElement"}  id="time">
+                                                {String(item.dt/1000%60)==="0"?(item.dt/1000/60<10)?("0" + item.dt/1000/60):item.dt/1000/60:String(item.dt/1000/60).slice(0,String(item.dt/1000/60).indexOf("."))<10?"0"+String(item.dt/1000/60).slice(0,String(item.dt/1000/60).indexOf(".")):String(item.dt/1000/60).slice(0,String(item.dt/1000/60).indexOf("."))}
+                                                {"."}
+                                                {String(item.dt/1000%60)==="0"?"00":(String(item.dt/1000%60).slice(0,String(item.dt/1000%60).indexOf(".")))<10?(String(item.dt/1000%60).slice(0,String(item.dt/1000%60).indexOf(".")))+"0":(String(item.dt/1000%60).slice(0,String(item.dt/1000%60).indexOf(".")))}
+                                            </span>
                                             <div className={musiclist.show} id="timeIcons">
                                                 <span className={musiclist.span1}></span>
                                                 <span className={musiclist.span2}></span>

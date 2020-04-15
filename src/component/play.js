@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react"
-import play from "../static/css/play.module.css"
 export default function Play(){
     let [show,setShow] = useState(false)
     useEffect(()=>{
@@ -12,34 +11,42 @@ export default function Play(){
         // console.log(playwrap)
         playwrap.onclick=function(){
             let cssfire = document.styleSheets
-            console.log(cssfire)
+            let auSrc = audio.getAttribute("src")
             let isplay = window.getComputedStyle(playicon,"style").display
             let isend = window.getComputedStyle(playend,"style").display
-            if(isplay==="block"&&isend==="none"){//暂停播放和动画
-                playicon.style.display="none"
-                playend.style.display="block"
-                let deg = window.getComputedStyle(cover,"style").transform
-                cover.style.animationPlayState = "paused"
-                audio.pause()
+            console.log(auSrc)
+            if(auSrc===""){
+                alert("选首音乐吧~~")
             }else{
-                playicon.style.display="block"
-                playend.style.display="none"
-                cover.style.animationPlayState = "running"
-                audio.play()
+                if(isplay==="block"&&isend==="none"){//暂停播放和动画
+                    playicon.style.display="none"
+                    playend.style.display="block"
+                    let deg = window.getComputedStyle(cover,"style").transform
+                    cover.style.animationPlayState = "paused"
+                    if(auSrc!==""){
+                        audio.pause()
+                    }
+                }else{
+                    playicon.style.display="block"
+                    playend.style.display="none"
+                    cover.style.animationPlayState = "running"
+                    if(auSrc!==""){
+                        audio.play()
+                    }
+                }
             }
         }
     })
     return(
-        <div id={play.wrap} 
-        className="playWrap">
-            <audio autoPlay="autoplay" src="">
-				
+        <div id="playwrap" 
+            className="playWrap">
+            <audio autoPlay="autoplay" src="" loop="loop">
             </audio>
-            <div id={play.imgcover}>
-                <div id={play.cover} className="cover"></div>
+            <div id="playimgcover">
+                <div id="playcover" className="cover"></div>
             </div>
-            <span id={play.play} className="play" style={{display:"none"}}></span>
-            <span id={play.end} className="end" style={{display:"block"}}></span>
+            <span id="playplay" className="play" style={{display:"none"}}></span>
+            <span id="playend" className="end" style={{display:"block"}}></span>
         </div>
     )
 }

@@ -1,6 +1,10 @@
 import React,{Fragment, useState}from "react"
 import titles from "../static/css/playdetail.module.css"
 import {NavLink} from "react-router-dom"
+import dayjs from "dayjs"
+let relativeTime = require("dayjs/plugin/relativeTime")
+require("dayjs/locale/zh-cn")
+dayjs.locale("zh-cn")
 export default function DetailTitle(props){
     //拿取父组件传递的信息，分离需要信息
     let {data} = props
@@ -27,7 +31,7 @@ export default function DetailTitle(props){
                             <i  className="s-fc7">{data.creator.nickname}</i>
                             </span>
                             <sup className={titles.detailIcon3}>&nbsp;</sup>
-                            <span className={titles.detailTime}>2020-3-1 创建</span>
+                            <span className={titles.detailTime}>{dayjs(data.createTime).format("YYYY-MM-D")} &nbsp;&nbsp;创建</span>
                         </div>
                         <div id="content-operation" className={titles.detailIcons}>
                             <div className={titles.detailIcons1} title="播放">
@@ -56,7 +60,7 @@ export default function DetailTitle(props){
                             <p 
                                 className={titles.detailSclieTxt}
                                 dangerouslySetInnerHTML={{
-                                    __html:(data.description.replace(/\n/g,`</br>`).length)<140?("介绍："+(data.description.replace(/\n/g,`</br>`))):("介绍："+(data.description.replace(/\n/g,`</br>`).slice(0,140) + "..."))
+                                    __html:((data.description==="null")?"":data.description.replace(/\n/g,`</br>`).length)<140?("介绍："+(data.description.replace(/\n/g,`</br>`))):("介绍："+(data.description.replace(/\n/g,`</br>`).slice(0,140) + "..."))
                                 }}
                                 style={show?{display:"none"}:{display:"block"}}
                             >
@@ -64,7 +68,7 @@ export default function DetailTitle(props){
                             <p 
                                 className={titles.detailSclieAll}
                                 dangerouslySetInnerHTML={{
-                                    __html:"介绍：" + (data.description.replace(/\n/g,`</br>`))
+                                    __html:"介绍：" + ((data.description==="null")?"":data.description.replace(/\n/g,`</br>`))
                                 }}
                                 style={!show?{display:"none"}:{display:"block"}}
                             >

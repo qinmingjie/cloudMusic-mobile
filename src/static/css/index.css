@@ -28,7 +28,7 @@ li{
 .m-Nav{
     display:none;
 }
-.mobile{
+.main .mobile{
     display:none;
 }
 
@@ -60,17 +60,17 @@ h1,h2,h3,h4,h5,h6{
     margin:0;
 }
 
-.loading{
+.apploading{
     display:block;
     position: absolute;
     top:0;
     right:0;
     left:0;
     bottom:0;
-    z-index:5;
+    z-index:999;
     background-color:#fff;
 }
-.loadingend{
+.apploadingend,.playlistLoadingend{
     display:none;
 }
 
@@ -598,6 +598,8 @@ h1,h2,h3,h4,h5,h6{
 .newDic-Name{
     float: left;
     position: absolute;
+    width:9999px;
+    left:0;
 }
 .newDic-Name:after{
     display: block;
@@ -607,8 +609,9 @@ h1,h2,h3,h4,h5,h6{
 .newDicList{
     width:118px;
     height:150px;
-    margin-left:11px;
+    padding-left:11px;
     float:left;
+    box-sizing: content-box;
 }
 .newDic-muc{
     width:100px;
@@ -1095,6 +1098,74 @@ h1,h2,h3,h4,h5,h6{
 }
 
 }
+
+
+/* 播放控件 */
+#playimgcover{
+    width:100px;
+    height:100px;
+    background-image: url(../img/coverall2.png);
+    background-repeat: no-repeat;
+    background-position:0 0;
+    background-size:cover;
+    position: relative;
+}
+#playcover{
+    width:70px;
+    height:70px;
+    position: absolute;
+    top:50%;
+    left:50%;
+    margin-top:-35px;
+    margin-left:-35px;
+    background-image:url(../img/disc_default.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    z-index:-1;
+}
+#playwrap{
+    width:100px;
+    height:100px;
+    position: fixed;
+    -webkit-position:fixed;
+    -webkit-webkit: border radius 50;
+    -moz-webkit: border radius 50;
+    -ms-webkit: border radius 50;
+    -o-webkit: border radius 50;
+    border-radius:50%;
+    right:20px;
+    top:50%;
+    margin-top:-100px;
+    cursor:pointer;
+    z-index:5;
+}
+#playend{
+    width: 0;
+    height: 0;
+    display:block;
+    position: absolute;
+    top:50%;
+    left:50%;
+    margin-top:-15px;
+    margin-left:-7px;
+    border-left:15px solid rgba(255,255,255,0.8);
+    border-top:15px solid transparent;
+    border-bottom: 15px solid transparent;
+}
+#playplay{
+    width: 10px;
+    height: 30px;
+    display:block;
+    position: absolute;
+    top:50%;
+    left:50%;
+    margin-top:-15px;
+    margin-left:-10px;
+    border-left:5px solid rgba(255,255,255,0.8);
+    border-right:5px solid rgba(255,255,255,0.8);
+    cursor: pointer;
+    box-sizing: content-box;
+}
 /* 动画 */
 .anima{
     animation-name:Circle;
@@ -1125,9 +1196,6 @@ h1,h2,h3,h4,h5,h6{
     .childNav{
         display:none;
     }
-    .playWrap{
-        display:none;
-    }
 
    
     /* 浏览器窗口变小 */
@@ -1138,7 +1206,8 @@ h1,h2,h3,h4,h5,h6{
         background-color:#d43c33;
         padding:0 2rem;
         position: fixed;
-        z-index:999;
+        z-index:888;
+        top:0;
     }
     .m-header:after{
         content:"";
@@ -1180,8 +1249,8 @@ h1,h2,h3,h4,h5,h6{
         height:8.1rem;
         width:72rem;
         position:fixed;
-        z-index:999;
-        margin-top:16.9rem;
+        z-index:888;
+        top:16.9rem;
         background-color:#fff;
         border-bottom:1px solid #ccc;
     }
@@ -1323,65 +1392,547 @@ h1,h2,h3,h4,h5,h6{
         text-decoration:underline;
     }
 
+    
     /* 最新音乐*/
-.mobile .Mnotice-mucList{
-    height:11rem;
-    width:72rem;
-    padding:1.6rem 0 1.6rem 2rem;
-}
-.mobile .Mnotice-list{
-    padding:1.6rem 0 1.6rem 2rem;
-    border-bottom:1px solid #ccc;
-    position: relative;
-}
-.mobile .Mnotice-list p{
-    width:58.7rem;
-    text-overflow: ellipsis;
-    overflow: hidden;
-    white-space: nowrap;
-}
-.mobile .Mnotice-list .Mnewname{
-    font-size:3rem;
-    color:#333;
-}
-.mobile .Mnotice-list .Mnewname2{
-    font-size:3rem;
-    color:#888;
-    margin-left:1.2rem;
-}
-.mobile .Mnotice-list .Mnewalumb{
-    font-size:2rem;
-    color:#888;
-    margin-top:0.2rem;
-    vertical-align: top;
-}
-.mobile .Mnotice-list .MalumbTxt{
-    padding-left:30px;
-}
-.mobile .Mnotice-list .Micon{
-    display:inline-block;
-    width:25px;
-    height:18px;
-    background-image: url(../img/wrap2.png);
-    background-position:0 0;
-    background-repeat: no-repeat;
-    position: relative;
-    top:0.7rem;
-    margin-right:0.1rem;
-}
+    .mobile .Mnotice-mucList{
+        height:11rem;
+        width:72rem;
+        padding:1.6rem 0 1.6rem 2rem;
+    }
+    .mobile .Mnotice-list{
+        padding:1.6rem 0 1.6rem 2rem;
+        border-bottom:1px solid #ccc;
+        position: relative;
+    }
+    .mobile .Mnotice-list p{
+        width:58.7rem;
+        text-overflow: ellipsis;
+        overflow: hidden;
+        white-space: nowrap;
+    }
+    .mobile .Mnotice-list .Mnewname{
+        font-size:3rem;
+        color:#333;
+    }
+    .mobile .Mnotice-list .Mnewname2{
+        font-size:3rem;
+        color:#888;
+        margin-left:1.2rem;
+    }
+    .mobile .Mnotice-list .Mnewalumb{
+        font-size:2rem;
+        color:#888;
+        margin-top:0.2rem;
+        vertical-align: top;
+        position: relative;
+    }
+    .mobile .Mnotice-list .MalumbTxt{
+        padding-left:2.8rem;
+    }
+    .mobile .Mnotice-list .Micon{
+        display:inline-block;
+        width:2.5rem;
+        height:1.8rem;
+        background-image: url(../img/wrap2.png);
+        background-position:0 0;
+        background-repeat: no-repeat;
+        background-size:33.2rem 19.4rem;
+        position: absolute;
+        top:50%;
+        margin-top:-0.6rem;
+        margin-right:0.1rem;
+    }
 
-.mobile .Mnotice-list .Mnum-show{
-    width:45px;
-    height:45px;
+    .mobile .Mnotice-list .Mnum-show{
+        width:4.5rem;
+        height:4.5rem;
+        position: absolute;
+        right:2rem;
+        top:50%;
+        margin-top:-2.2rem;
+        background-image: url(../img/wrap2.png);
+        background-position: -4.7rem 0;
+        background-size:33.2rem 19.4rem;
+    }
+        
+        
+    /* 热歌榜样式 */
+    .mobile .m-hotmusic{
+        width:72rem;
+        height:28.1rem;
+        position: relative;
+        padding-left:4rem;
+        padding-top:4.5rem;
+        background-image: url(../img/hot_music_bg.jpg);
+        background-position: 0 0;
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+    .mobile .m-hoticon{
+        width:28.4rem;
+        height:13.5rem;
+        background-image: url(../img/wrap2.png);
+        background-repeat: no-repeat;
+        background-position:-4.4rem -6.1rem;
+        background-size:33.2rem 19.4rem;
+    }
+    .mobile .m-hotdate{
+        margin-top:2.5rem;
+        font-size:2.3rem;
+        color:#fff;
+        text-indent: 0.3em;
+    }
+    .mobile .Mnotice-mucList.Mhotlist{
+        padding-left:8rem;
+    }
+
+
+    /* 设置数字 */
+    .mobile .Mnumber{
+        position: absolute;
+        display:inline-block;
+        left:-5.8rem;
+        font-size:2.7rem;
+        top:50%;
+        margin-top:-0.9rem;
+        color:#888;
+    }
+    .mobile .Mnumber.Mrednum{
+        color:#df3436;
+    }
+
+    /* 各单项请 */
+    .mobile.detailInfo{
+        padding-top:0;
+    }
+    .m-detailCover{
+        width:72rem;
+    }
+    .m-detailCoverImg{
+        width:72rem;
+        height:37.2rem;
+        padding:6rem 3rem;
+        position: relative;
+    }
+    .m-detailCoverImg:after{
+        content:"";
+        display: block;
+        clear: both;
+    }
+    .m-cover{
+        width:25.4rem;
+        height:25.4rem;
+        float:left;
+    }
+    .m-cover img{
+        width:100%;
+        height:100%
+    }
+    .m-title{
+        float:right;
+        width:38.1rem;
+        height:25.4rem;
+    }
+    .m-txt{
+        color:#fff;
+        font-size:3rem;
+        line-height:4.5rem;
+    }
+    .m-icons{
+        font-size:2.5rem;
+        height:6.3rem;
+        line-height:6.3rem;
+        color:hsla(0,0%,100%,.7);
+        margin-top:4.5rem;
+    }
+    .m-icon{
+        display:inline-block;
+        vertical-align:middle;
+        position: relative;
+        margin-right:1.5rem;
+    }
+    .m-icon img{
+        width:6rem;
+        height:6.3rem;
+        border-radius:50%;
+    }
+    .m-icon i{
+        display:inline-block;
+        width:2.5rem;
+        height:2.7rem;
+        background-image: url(../img/usericn_2x.png);
+        background-position: 0 0;
+        background-repeat: no-repeat;
+        background-size:15rem 5rem;
+        position: absolute;
+        left:4.7rem;
+        top:3.7rem;
+    }
+    .m-icon i.m-office{
+        background-position: 0 0;
+    }
+    .m-icon i.m-other{
+        background-position: -4rem 0;
+    }
+    .m-icon i.m-star{
+        background-position: -8rem 0;
+    }
+
+    /* 背景模糊效果 */
+    .m-burlImg{
+        position: absolute;
+        width:100%;
+        height:100%;
+        top:0;
+        left:0;
+        bottom:0;
+        right:0;
+        z-index:-1;
+        overflow: hidden;
+    }
+    .m-burlImg img{
+        width:200%;
+        height:200%;
+        filter: blur(20px);
+    }
+
+    /* 标签 */
+    .m-detailTxt{
+        width:72rem;
+        padding:2rem  2rem 4rem  3rem;
+        background-color:#fff;
+        font-size:2.5rem;
+        color:#666;
+        vertical-align: middle;
+    }
+    .m-detailTags{
+        line-height:4.5rem; 
+    }
+    .m-detailTags i{
+        font-style:normal;
+        display:inline-block;
+        padding:0rem 2.6rem;
+        border:1px solid #ccc;
+        border-radius:5rem;
+        margin-right: 2rem;
+        margin-bottom:2.5rem;
+    }
+    .m-detailSelect span{
+        float:right;
+    }
+    .m-detailSelect span i{
+        display:inline-block;
+        width:2.6rem;
+        height:1.5rem;
+        background-image: url(../img/icon.png);
+        background-position: -5.8rem -52rem;
+        background-size:8.5rem 110.7rem;
+    }
+    #m-detailShow{
+        background-position: -3.5rem -52rem;
+    }
+
+    /*  */
+    .m-detailh{
+        font-size:2.5rem;
+        color:#666;
+        height:4.6rem;
+        padding-left:2rem;
+        line-height:4.6rem;
+    }  
+
+
+    /* 各单项请 */
+    .mobile.detailInfo{
+        padding-top:0;
+    }
+    .m-detailCover{
+        width:72rem;
+    }
+    .m-detailCoverImg{
+        width:72rem;
+        height:37.2rem;
+        padding:6rem 3rem;
+        position: relative;
+    }
+    .m-detailCoverImg:after{
+        content:"";
+        display: block;
+        clear: both;
+    }
+    .m-cover{
+        width:25.4rem;
+        height:25.4rem;
+        float:left;
+    }
+    .m-cover img{
+        width:100%;
+        height:100%
+    }
+    .m-title{
+        float:right;
+        width:38.1rem;
+        height:25.4rem;
+    }
+    .m-txt{
+        color:#fff;
+        font-size:3rem;
+        line-height:4.5rem;
+    }
+    .m-icons{
+        font-size:2.5rem;
+        height:6.3rem;
+        line-height:6.3rem;
+        color:hsla(0,0%,100%,.7);
+        margin-top:4.5rem;
+    }
+    .m-icon{
+        display:inline-block;
+        vertical-align:middle;
+        position: relative;
+        margin-right:1.5rem;
+    }
+    .m-icon img{
+        width:6rem;
+        height:6.3rem;
+        border-radius:50%;
+    }
+    .m-icon i{
+        display:inline-block;
+        width:2.5rem;
+        height:2.7rem;
+        background-image: url(../img/usericn_2x.png);
+        background-position: 0 0;
+        background-repeat: no-repeat;
+        background-size:15rem 5rem;
+        position: absolute;
+        left:4.7rem;
+        top:3.7rem;
+    }
+    .m-icon i.m-office{
+        background-position: 0 0;
+    }
+    .m-icon i.m-other{
+        background-position: -4rem 0;
+    }
+    .m-icon i.m-star{
+        background-position: -8rem 0;
+    }
+
+    /* 背景模糊效果 */
+    .m-burlImg{
+        position: absolute;
+        width:100%;
+        height:100%;
+        top:0;
+        left:0;
+        bottom:0;
+        right:0;
+        z-index:-1;
+        overflow: hidden;
+    }
+    .m-burlImg img{
+        width:200%;
+        height:200%;
+        filter: blur(20px);
+    }
+
+    /* 标签 */
+    .m-detailTxt{
+        width:72rem;
+        padding:2rem  2rem 4rem  3rem;
+        background-color:#fff;
+        font-size:2.5rem;
+        color:#666;
+        vertical-align: middle;
+    }
+    .m-detailTags{
+        line-height:4.5rem; 
+    }
+    .m-detailTags i{
+        font-style:normal;
+        display:inline-block;
+        padding:0rem 2.6rem;
+        border:1px solid #ccc;
+        border-radius:5rem;
+        margin-right: 2rem;
+        margin-bottom:2.5rem;
+    }
+    .m-detailSelect span{
+        float:right;
+    }
+    .m-detailSelect span i{
+        display:inline-block;
+        width:2.6rem;
+        height:1.5rem;
+        background-image: url(../img/icon.png);
+        background-position: -5.8rem -52rem;
+        background-size:8.5rem 110.7rem;
+    }
+    #m-detailShow{
+        background-position: -3.5rem -52rem;
+    }
+    /* 搜索页面 */
+    .mobile .m-search{
+        width:72rem;
+        padding:3rem 2rem;
+        margin-bottom:3rem;
+        border-bottom:1px solid #ccc;
+    }
+    .mobile .m-search input{
+        display:inline-block;
+        width:100%;
+        height:6rem;
+        background-color:#ebecec;
+        border:0;
+        outline: none;
+        border-radius:3rem;
+        padding-left:5rem;
+        font-size:3rem;
+        line-height:6rem;
+        background-image: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNiAyNiI+PHBhdGggZmlsbC1ydWxlPSJldmVub2RkIiBmaWxsPSIjYzljOWNhIiBkPSJNMjUuMTgxIDIzLjUzNWwtMS40MTQgMS40MTQtNy4zMTUtNy4zMTRBOS45NjYgOS45NjYgMCAwIDEgMTAgMjBDNC40NzcgMjAgMCAxNS41MjMgMCAxMFM0LjQ3NyAwIDEwIDBzMTAgNC40NzcgMTAgMTBjMCAyLjM0Mi0uODExIDQuNDktMi4xNiA2LjE5NWw3LjM0MSA3LjM0ek0xMCAyYTggOCAwIDEgMCAwIDE2IDggOCAwIDAgMCAwLTE2eiIvPjwvc3ZnPg==);
+        background-repeat: no-repeat;
+        background-size:2.9rem 2.9rem;
+        background-position:1.4rem 1.7rem;
+    }
+
+    .mobile .m-hotsearch{
+        font-size:3rem;
+        color:#333;
+        padding:0 2rem;
+    }
+    .mobile .m-searchMusic{
+        display:flex;
+        justify-content: start;
+        flex-wrap: wrap;
+    }
+    .mobile .m-searchMusic span{
+        display: inline-block;
+        padding:1.6rem 2.8rem;
+        border:1px solid #ccc;
+        vertical-align: middle;
+        white-space: nowrap;
+        border-radius: 4rem;
+        margin:2rem 1.5rem 2rem 0;
+    }
+
+    
+/* 播放控件 */
+#playimgcover{
+    width:15rem;
+    height:15rem;
+    background-image: url(../img/coverall2.png);
+    background-repeat: no-repeat;
+    background-position:0 0;
+    background-size:cover;
+    position: relative;
+}
+#playcover{
+    width:12rem;
+    height:12rem;
     position: absolute;
+    top:50%;
+    left:50%;
+    margin-top:-6rem;
+    margin-left:-6rem;
+    background-image:url(../img/disc_default.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    z-index:-1;
+    border-radius: 50%;
+}
+#playwrap{
+    width:15rem;
+    height:15rem;
+    position: fixed;
+    -webkit-position:fixed;
+    -webkit-webkit: border radius 50;
+    -moz-webkit: border radius 50;
+    -ms-webkit: border radius 50;
+    -o-webkit: border radius 50;
+    border-radius:50%;
     right:2rem;
     top:50%;
-    margin-top:-22px;
-    background-image: url(../img/wrap2.png);
-    background-position: -47px 0;
+    margin-top:-15rem;
+    cursor:pointer;
+    z-index:999;
 }
-    
+#playend{
+    width: 0;
+    height: 0;
+    display:block;
+    position: absolute;
+    top:50%;
+    left:50%;
+    margin-top:-1.5rem;
+    margin-left:-0.7rem;
+    border-left:1.5rem solid rgba(255,255,255,0.8);
+    border-top:1.5rem solid transparent;
+    border-bottom: 1.5rem solid transparent;
+}
+#playplay{
+    width: 1rem;
+    height: 3rem;
+    display:block;
+    position: absolute;
+    top:50%;
+    left:50%;
+    margin-top:-1.5rem;
+    margin-left:-1rem;
+    border-left:0.5rem solid rgba(255,255,255,0.8);
+    border-right:0.5rem solid rgba(255,255,255,0.8);
+    cursor: pointer;
+    box-sizing: content-box;
+}
 
+/*  */
+/* 设置loading */
+.apploading{
+    display:block;
+    position: absolute;
+    top:0;
+    right:0;
+    left:0;
+    bottom:0;
+    z-index:999;
+    background-color:#fff;
+}
+.apploadingend{
+    display:none;
+}
+
+@keyframes opacity {
+	0% { opacity: 1; }
+	100% { opacity: 0; }
+}
+@keyframes opacity {
+	0% { opacity: 1; }
+	100% { opacity: 0; }
+}
+
+#loading {
+	text-align: center; 
+	margin: 100px 0 0 0;
+}
+
+#loading span {
+	animation-name: opacity;
+	animation-duration: 1s;
+	animation-iteration-count: infinite;
+	animation-name: opacity;
+	animation-duration: 1s;
+	animation-iteration-count: infinite;
+}
+
+#loading span:nth-child(2) {
+	animation-delay: 100ms;
+	animation-delay: 100ms;
+}
+
+#loading span:nth-child(3) {
+	animation-delay: 300ms;
+	animation-delay: 300ms;
+}
 
 }
 

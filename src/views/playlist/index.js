@@ -4,7 +4,7 @@ import Recommend from "../../component/recommend"
 import PageNation from "../../component/pagenation"
 import {useLocation,NavLink} from "react-router-dom"
 import {useSelector} from "react-redux"
-import {usePlaylists} from "../../store/action/index"
+import {usePlaylists} from "../../store/action"
 import Footer from "../../component/footer"
 import qs from "qs"
 export default function PlayList(props){
@@ -22,14 +22,11 @@ export default function PlayList(props){
     useEffect(()=>{
         getTypData("/playlist/catlist")
     },[])
-    // console.log("index"+thisPage)
     let {cat,type,loading} = state  //解构出分类
-    // console.log(loading)
+
+    
     return (
         <Fragment>
-            <div className={loading?playlist.loading:playlist.loadingend}>
-			    <p id="loading">Loading<span>.</span><span>.</span><span>.</span></p>
-		    </div>
             <div id={playlist.content}>
                 <div className={playlist.htitle}>
                     <div className={playlist.rectxt}>
@@ -61,7 +58,7 @@ export default function PlayList(props){
                                 <div className={playlist.Link}>
                                     {(cat.length===0||cat===undefined)?"":cat.map((item,index)=>{
                                         if(item.category===0){
-                                            return <NavLink key={item.name} to={`/index/playlist?cat=${item.name}&limit=${numb}&page=1`} activeClassName="active">{item.name}</NavLink>
+                                            return <NavLink key={item.name} to={`/admin/playlist?cat=${item.name}&limit=${numb}&page=1`} activeClassName="active">{item.name}</NavLink>
                                         }
                                     })}
                                 </div>
@@ -74,7 +71,7 @@ export default function PlayList(props){
                                 <div className={playlist.Link}>
                                     {(cat.length===0||cat===undefined)?"":cat.map((item,index)=>{
                                         if(item.category===1){
-                                            return <NavLink key={item.name} to={`/index/playlist?cat=${item.name}&limit=${numb}&page=1`} activeClassName="active">{item.name}</NavLink>
+                                            return <NavLink key={item.name} to={`/admin/playlist?cat=${item.name}&limit=${numb}&page=1`} activeClassName="active">{item.name}</NavLink>
                                         }
                                     })}
                                    
@@ -89,7 +86,7 @@ export default function PlayList(props){
                                 <div className={playlist.Link}>
                                     {(cat.length===0||cat===undefined)?"":cat.map((item,index)=>{
                                         if(item.category===2){
-                                            return <NavLink key={item.name} to={`/index/playlist?cat=${item.name}&limit=${numb}&page=1`} activeClassName="active">{item.name}</NavLink>
+                                            return <NavLink key={item.name} to={`/admin/playlist?cat=${item.name}&limit=${numb}&page=1`} activeClassName="active">{item.name}</NavLink>
                                         }
                                     })}
                                     
@@ -103,7 +100,7 @@ export default function PlayList(props){
                                 <div className={playlist.Link}>
                                     {(cat.length===0||cat===undefined)?"":cat.map((item,index)=>{
                                         if(item.category===3){
-                                            return <NavLink key={item.name} to={`/index/playlist?cat=${item.name}&limit=${numb}&page=1`} activeClassName="active">{item.name}</NavLink>
+                                            return <NavLink key={item.name} to={`/admin/playlist?cat=${item.name}&limit=${numb}&page=1`} activeClassName="active">{item.name}</NavLink>
                                         }
                                     })}
                                 </div>
@@ -116,7 +113,7 @@ export default function PlayList(props){
                                 <div className={playlist.Link}>
                                     {(cat.length===0||cat===undefined)?"":cat.map((item,index)=>{
                                         if(item.category===4){
-                                            return <NavLink key={item.name} to={`/index/playlist?cat=${item.name}&limit=${numb}&page=1`} activeClassName="active">{item.name}</NavLink>
+                                            return <NavLink key={item.name} to={`/admin/playlist?cat=${item.name}&limit=${numb}&page=1`} activeClassName="active">{item.name}</NavLink>
                                         }
                                     })}
                                 </div>
@@ -125,7 +122,7 @@ export default function PlayList(props){
                         </section>
                     </div>
                     <span className={playlist.tmucmore}>
-                        <NavLink to="/index/playlist?cat=" className="">热门
+                        <NavLink to="/playlist?cat=" className="">热门
                         </NavLink>
                     </span>
                 </div>

@@ -1,0 +1,321 @@
+#content{
+    width: 980px;
+    min-height: 700px;
+    margin: 0 auto;
+    background-color: #fff;
+    border: 1px solid #d3d3d3;
+    border-width: 0 1px;
+    padding:40px;
+}
+
+/* 封面图 */
+.detailWrap:after{
+    content:"";
+    display:block;
+    clear: both;
+}
+.detailCoverImg{
+    width:200px;
+    height:200px;
+    float:left;
+    position: relative;
+}
+.detailCoverImg img{
+    width:100%;
+}
+.cover{
+    width:208px;
+    height:208px;
+    display:block;
+    top:-4px;
+    left:-4px;
+    position: absolute;
+    background-image: url(../img/coverall.png);
+    background-position:0 -1285px;
+}
+
+/* 文字 */
+.detailTxt{
+    width:100%;
+    padding-left:230px;
+}
+.detailTiile{
+    margin: 0 0 12px;
+    line-height: 24px; 
+}
+.detailIcon1{
+    display:inline-block;
+    width: 54px;
+    height: 24px;
+    float:left;
+    background-position: 0 -243px;
+    background-image: url(../img/icon.png);
+}
+.detailh2{
+    padding-left:64px;
+    font-weight: initial;
+}
+.detailIcon2{
+    margin: 0 0 20px;
+    line-height: 35px;
+    font-size: 12px;
+}
+.detailFace img{
+    width:35px;
+    height:35px;
+    float:left;
+    margin-right:10px;
+}
+.detailIcon2 i{
+    color:#0c73c2;
+    font-style: normal;
+}
+.detailIcon2 i:hover{
+    text-decoration:underline;
+    cursor: pointer;
+}
+.detailIcon3{
+    width: 12px;
+    height: 13px;
+    margin-left:9px;
+    background-position: -65px -840px;
+    background-image: url(../img/icon.png);
+    display:inline-block;
+    vertical-align: middle;
+}
+.detailTime{
+    margin-left:15px;
+    color:#999;
+    vertical-align: middle;
+}
+
+/* 播放，收藏，下载等icon */
+.detailIcons div{
+    display:inline-block;
+}
+.detailIcons i{
+    font-style:normal;
+}
+.detailIcons1{
+    color:#fff;
+    background-position: right -428px;
+    padding: 0 5px 0 0;
+    white-space: nowrap;
+    height: 31px;
+    overflow: hidden;
+    line-height: 32px;
+    vertical-align: top;
+    text-align: center;
+    cursor: pointer;
+    background-image: url(../img/button2.png);
+    background-repeat: no-repeat;
+}
+.detailIcons1:hover{
+    background-position: right -510px;
+}
+.detailIcons1 i{
+    display:inline-block;
+    padding: 0 7px 0 8px;
+    height: 31px;
+    overflow: hidden;
+    background-image: url(../img/button2.png);
+    background-repeat: no-repeat;
+    background-position: 0 -387px;
+}
+.detailIcons1:hover i{
+    background-position: 0 -469px;
+}
+.detailIcons1:hover i em{
+    background-position: -28px -1622px;
+}
+.detailIcons1 i em{
+    float: left;
+    width: 20px;
+    height: 18px;
+    margin: 6px 2px 2px 0;
+    background-position: 0 -1622px;
+    overflow: hidden;
+    background-image: url(../img/button2.png);
+    background-repeat: no-repeat;
+}
+
+
+.detailIcons2{
+    margin-right:5px;
+    width: 31px;
+    margin-left: -3px;
+    height: 31px;
+    line-height: 30px;
+    min-width: 23px;
+    cursor: pointer;
+    background-image: url(../img/button2.png);
+    background-repeat: no-repeat;
+    background-position: 0 -1588px;
+}
+.detailIcons2:hover{
+    background-position: -40px -1588px;
+}
+
+.detailIcons3{
+    height: 31px;
+    line-height: 30px;
+    min-width: 23px;
+    cursor: pointer;
+    padding: 0 5px 0 0;
+    white-space: nowrap;
+    vertical-align: top;
+    margin-right:6px;
+    background-image: url(../img/button2.png);
+    background-repeat: no-repeat;
+    background-position: right -1020px;
+}
+.detailIcons3:hover{
+    background-position: right -1106px;
+}
+.detailIcons3:hover i{
+    background-position: 0 -1063px;
+}
+.detailIcons3 i{
+    display:inline-block;
+    height:31px;
+    line-height: 30px;
+    padding:0 7px 0 36px;
+    min-width:23px;
+    cursor: pointer;
+    background-image: url(../img/button2.png);
+    background-repeat: no-repeat;
+    background-position: 0 -977px;
+}
+
+.detailIcons4{
+    vertical-align: top;
+    height: 31px;
+    line-height: 30px;
+    min-width: 23px;
+    cursor: pointer;
+    margin-right:6px;
+    padding:0 5px 0 0;
+    background-image: url(../img/button2.png);
+    background-repeat: no-repeat;
+    background-position: right -1020px;
+}
+.detailIcons4:hover{
+    background-position: right -1106px;
+}
+.detailIcons4:hover i{
+    background-position: 0 -1268px;
+}
+.detailIcons4 i{
+    display:inline-block;
+    padding-right: 2px;
+    padding-left: 28px;
+    height: 31px;
+    line-height: 30px;
+    min-width: 23px;
+    cursor: pointer;
+    background-image: url(../img/button2.png);
+    background-repeat: no-repeat;
+    background-position: 0 -1225px;
+}
+
+.detailIcons5{
+    vertical-align: top;
+    height: 31px;
+    line-height: 30px;
+    min-width: 23px;
+    cursor: pointer;
+    margin-right:6px;
+    padding:0 5px 0 0;
+    background-image: url(../img/button2.png);
+    background-repeat: no-repeat;
+    background-position: right -1020px;
+}
+.detailIcons5:hover{
+    background-position:right -1106px;
+}
+.detailIcons5:hover i{
+    background-position:0 -1508px;
+}
+.detailIcons5 i{
+    display:inline-block;
+    padding-right: 2px;
+    padding-left: 28px;
+    height: 31px;
+    line-height: 30px;
+    min-width: 23px;
+    cursor: pointer;
+    background-image: url(../img/button2.png);
+    background-repeat: no-repeat;
+    background-position: 0 -1465px;
+}
+
+/* 标签 */
+.detailTags{
+   margin:25px 0 5px;
+   line-height:22px;
+   font-size:12px;
+   color:#666;
+}
+.detailTags a{
+    display:inline-block;
+    margin:0 10px 3px 0;
+    padding:0 10px 0 0 ;
+    height:22px;
+    line-height: 22px;
+    color:#777;
+    background-image: url(../img/button2.png);
+    background-repeat: no-repeat;
+    background-position: right -27px;
+}
+.detailTags a:hover{
+    background-position: right -1430px;
+}
+.detailTags a:hover i{
+    background-position: 0 -1400px;
+}
+.detailTags a i{
+    font-style:normal;
+    display:inline-block;
+    padding:0 3px 0 13px;
+    height:22px;
+    line-height:22px;
+    background-image: url(../img/button2.png);
+    background-repeat: no-repeat;
+    background-position: 0 0;
+}
+
+
+.detailSclieTxt,.detailSclieAll{
+    color:#666;
+    line-height:20px;
+}
+
+.detailSelect span{
+    float:right;
+    color:#0c73c2;
+    cursor: pointer;
+}
+.detailSelect span i{
+    display:inline-block;
+    width: 11px;
+    height: 8px;
+    background-image: url(../img/icon.png);
+    background-position: -65px -520px;
+}
+#detailShow{
+    background-position: -45px -520px;
+}
+
+.loading{
+    display:block;
+    position: absolute;
+    top:0;
+    right:0;
+    left:0;
+    bottom:0;
+    z-index:5;
+    background-color:#fff;
+}
+.loadingend{
+    display:none;
+}

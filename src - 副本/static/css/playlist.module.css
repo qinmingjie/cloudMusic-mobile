@@ -1,0 +1,229 @@
+#content{
+    width: 980px;
+    min-height: 700px;
+    margin: 0 auto;
+    background-color: #fff;
+    border: 1px solid #d3d3d3;
+    border-width: 0 1px;
+    padding:40px;
+}
+.htitle{
+    width:100%;
+    height:40px;
+    padding:0 10px 0 34px;
+    border-bottom:2px solid #c10d0c;
+}
+.htitle:after{
+    display:block;
+    content:"";
+    clear: both;
+}
+.htitle a{
+    color:#666;
+}
+.htitle a:hover{
+    text-decoration: underline;
+}
+.rectxt,.recsort{
+    position: relative;
+    float: left;
+}
+.rectxt a{
+    font-size:20px;
+    line-height:28px;
+    color:#333333;
+}
+.rectxt a:hover{
+    text-decoration: none;
+}
+.tmucmore{
+    float:right;
+    width:46px;
+    height:29px;
+    line-height:29px;
+    text-align:center;
+    background-color:#c10d0c;
+    border-radius:5px;
+    border:0.5px solid #000;
+   
+}
+.tmucmore a{
+    color:#fff;
+}
+
+/* 分类选择按钮样式 */
+#content .select{
+    position: relative;
+    font-size:12px;
+    height:31px;
+    display:inline-block;
+    padding:0 5px 0 0;
+    margin:-5px 0 0 12px;
+    background-image:url("../img/button2.png");
+    background-repeat: no-repeat;
+    background-position: right -100px
+}
+#content .select:hover{
+    cursor: pointer;
+    background-position: right -182px;
+}
+#content .select:hover i{
+    background-position: 0 -141px;
+}
+.select i{
+    font-style:normal;
+    line-height:31px;
+    font-size:12px;
+    height:31px;
+    display:inline-block;
+    padding:0 15px 0 15px;
+    background-image:url("../img/button2.png");
+    background-position: 0 -59px;
+    background-repeat: no-repeat;
+    color:#0c73c2;
+}
+.select em{
+    display:inline-block;
+    width:8px;
+    height:5px;
+    background-image: url("../img/icon.png");
+    background-repeat: no-repeat;
+    background-position:-70px -543px;
+    margin-left:5px;
+}
+
+/* 歌单分类弹出框 */
+.commendSort{
+    width:720px;
+    position: absolute;
+    padding:0 10px;
+    background-image: url(../img/sltlyr.png);
+    background-position:-720px 0;
+    background-repeat: repeat-y;
+    top:50px;
+    display:none;
+    z-index:5;
+}
+.commendSort .active{
+    background-color:#a7a7a7;
+    color:#fff;
+}
+#show{
+    background-color:pink;
+}
+.commHeader{
+    height:15px;
+    background-image: url(../img/sltlyr.png);
+    background-repeat: no-repeat;
+    background-position: -10px -12px;
+    position: relative;
+}
+.commHeader em{
+    position: absolute;
+    top: -10px;
+    left: 80px;
+    display: inline-block;
+    width: 24px;
+    height: 11px;
+    background-position: -48px 0;
+    background-image:url(../img/iconall.png)
+}
+.commendSort>div{
+    content:"";
+    display:block;
+    clear: both;
+}
+.commendSort>div>div{
+    float:left;
+}
+.commendAll{
+    height: 37px;
+    padding-left: 26px;
+    border-bottom: 1px solid #e6e6e6;
+    font-weight: normal
+}
+.commendAll a{
+    display:inline-block;
+    width: 75px;
+    height: 26px;
+    text-align: center;
+    font-size:12px;
+    line-height: 26px;
+    background-image: url("../img/button.png");
+    background-repeat: no-repeat;
+    background-position: 0 -64px;
+}
+.commendAll a:hover{
+    text-decoration:underline;
+}
+.caption{
+    display: table-cell;
+    width: 70px;
+    margin: 0 -100px 0 26px;
+    padding-top: 15px;
+    line-height:24px;
+    font-weight: bold;
+}
+.caption em{
+    display:inline-block;
+    margin-right: 8px;
+    padding-top: 8px;
+    width: 24px;
+    height: 24px;
+    float: left;
+    background-position: 0 -141px;
+    background-image: url(../img/icon.png);
+}
+.language .caption em{
+    background-position: -20px -735px;
+}
+.style .caption em{
+    background-position: 0 -60px;
+}
+.scene .caption em{
+    background-position: 0 -88px;
+}
+.fell .caption em{
+    background-position: 0 -117px;
+}
+.topic .caption em{
+    background-position: 0 -141px;
+}
+
+.Link{
+    padding:16px 15px 0 15px;
+    line-height:24px;
+    margin-left:96px;
+    width:624px;
+    border-left:1px solid #e6e6e6;
+}
+.Link a{
+    font-size:12px;
+    display:inline-block;
+    padding:2px 6px;
+    line-height:initial;
+}
+.Link a:hover{
+    text-decoration: underline;
+}
+.commFooter{
+    height:15px;
+    background-image: url(../img/sltlyr.png);
+    background-repeat: no-repeat;
+    background-position: -1450px -4px;
+}
+
+
+.loading{
+    display:block;
+    position: absolute;
+    top:0;
+    right:0;
+    left:0;
+    bottom:0;
+    z-index:5;
+    background-color:#fff;
+}
+.loadingend{
+    display:none;
+}

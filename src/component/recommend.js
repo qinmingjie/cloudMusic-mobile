@@ -21,14 +21,14 @@ function Recommend(props){
                         <li key={item.name}>
                             <div className="rec-muc">
                                 <img src={item.picUrl} alt=""/>
-                                <NavLink to={`/index/playlist/detail?id=${item.id}`} className="cover"></NavLink>
+                                <NavLink to={`/playlist/detail?id=${item.id}`} className="cover"></NavLink>
                                 <div className="rec-icon">
                                     <span className="set-icon"></span>
                                     <span className="icon-txt">{String(item.playCount).length>4?(String(item.playCount).length>8?String(item.playCount).slice(0,-8)+"亿":String(item.playCount).slice(0,-4)+"万"):item.playCount}</span>
-                                    <NavLink to={`/index/playlist/detail?id=${item.id}`} className="p-icon"></NavLink>
+                                    <NavLink to={`/playlist/detail?id=${item.id}`} className="p-icon"></NavLink>
                                 </div>
                                 <p className="rec-mucTxt">
-                                    <NavLink to={`/index/playlist/detail?id=${item.id}`}>
+                                    <NavLink to={`/playlist/detail?id=${item.id}`}>
                                         {item.name}
                                     </NavLink>
                                 </p>
@@ -40,14 +40,14 @@ function Recommend(props){
                         <li key={index} className="playlists">
                             <div className="rec-muc">
                                 <img src={item.coverImgUrl} alt=""/>
-                                <NavLink to={`/index/playlist/detail?id=${item.id}`} className="cover"></NavLink>
+                                <NavLink to={`/playlist/detail?id=${item.id}`} className="cover"></NavLink>
                                 <div className="rec-icon">
                                     <span className="set-icon"></span>
                                     <span className="icon-txt">{String(item.playCount).length>4?(String(item.playCount).length>8?String(item.playCount).slice(0,-8)+"亿":String(item.playCount).slice(0,-4)+"万"):item.playCount}</span>
-                                    <NavLink to={`/index/playlist/detail?id=${item.id}`} className="p-icon"></NavLink>
+                                    <NavLink to={`/playlist/detail?id=${item.id}`} className="p-icon"></NavLink>
                                 </div>
                                 <p className="rec-mucTxt">
-                                    <NavLink to={`/index/playlist/detail?id=${item.id}`}>
+                                    <NavLink to={`/playlist/detail?id=${item.id}`}>
                                         {page}{item.name}
                                     </NavLink>
                                 </p>

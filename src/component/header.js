@@ -7,10 +7,10 @@ function Header(){
             <div className="header">
                 <nav className="navcenter">
                     <h1 className="header-logo">
-                        <NavLink to="/index" style={{display:"block",width:"100%",height:"100%",backgroundColor:"transparent"}}></NavLink>
+                        <NavLink to="/admin" style={{display:"block",width:"100%",height:"100%",backgroundColor:"transparent"}}></NavLink>
                     </h1>
                     <div className="headerNav">
-                        <NavLink to="/index" key={"发现音乐"} >发现音乐<em></em></NavLink>
+                        <NavLink to="/admin" key={"发现音乐"} >发现音乐<em></em></NavLink>
                         <NavLink to="/my" key={"我的音乐"} >我的音乐<em></em></NavLink>
                         <NavLink to="/friend" key={"朋友"} >朋友<em></em></NavLink>
                         <NavLink to="/download" key={"下载客户端"}  className="header-downLoad">下载客户端<span className="hot"></span><em></em></NavLink>
