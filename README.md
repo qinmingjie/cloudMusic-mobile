@@ -23,3 +23,11 @@
   解决方法：
   - 创建状态管理函数，和修改action函数，在所有需要请求数据的action操作函数中来调用修改loading的action操作函数，达到修改loading的目的
 ![Aaron Swartz](src/static/img/project1.png)
+>
+![Aaron Swartz](src/static/img/project2.png)
+>
+![Aaron Swartz](src/static/img/project3.png)
+>
+![Aaron Swartz](src/static/img/project4.png)
+>
+![Aaron Swartz](src/static/img/project5.png)
